@@ -1,0 +1,35 @@
+@import './mixins';
+
+:root {
+	// ЦВЕТА
+	--color-black: #1c242a;
+	--color-white: #fff;
+	--color-eastbay: #484283;
+	--color-main: #444b58;
+	--color-main-hover: #31343c;
+	--color-accent: #f14f4f;
+	--color-accent-hover: #cc4949;
+	--color-border: rgba(255, 255, 255, 0.5);
+	--color-bg: #fff4ee;
+	--color-cameo: #dbbba9;
+	--color-gray: #b2b5bb;
+	--color-jumbo: #808080;
+	--color-btn-active: #8c2828;
+
+	// ОТСТУПЫ
+	--grid-gap: 20px;
+	--main-offset: 40px;
+	--second-offset: 20px;
+	--small-offset: 10px;
+	--big-offset: 60px;
+}
+
+// @include mobile {
+// 	:root {
+// 		--grid-gap: 10px;
+// 		--main-offset: 20px;
+// 		--second-offset: 14px;
+// 		--small-offset: 8px;
+// 		--big-offset: 30px;
+// 	}
+// }
