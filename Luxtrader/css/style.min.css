@@ -180,6 +180,7 @@ body._lock {
     transform: translate(-50%, -50%);
   }
 }
+
 .menu {
   flex: 1 1 auto;
   padding: 0 0 0 30px;
