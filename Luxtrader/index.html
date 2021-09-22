@@ -15,13 +15,13 @@
 		<div class="wrapper">
 			<header class="header">
 	<div class="header__container _container">
+		<div class="icon-menu">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
 		<a href="" class="header__logo"><img src="img/logo.png" alt="" /></a>
 		<div class="header__menu menu">
-			<button type="button" class="menu__icon icon-menu">
-				<span></span>
-				<span></span>
-				<span></span>
-			</button>
 			<nav class="menu__body">
 				<ul class="menu__list">
 					<li class="menu__item"><a href="" class="menu__link">Главная</a></li>
@@ -33,19 +33,24 @@
 			</nav>
 		</div>
 		<div class="header__actions actions-header">
-			<a class="actions-header__region">Выбор Региона</a>
-			<div class="actions-header__user user-header">
-				<img src="img/icons/user.png" alt="">
+			<a data-da=".menu__body, 767, 1" href="" class="actions-header__region"><span>Выбор
+					Региона<span></a>
+					<div class="actions-header__user user-header">
+						<div class="user-header__icon">
+							<img src="img/icons/user.png" alt="">
+						</div>
+						<ul class="user-header__menu">
+							<li><a href="" class="user-header__link user-header__link_1">Выбор
+									региона</a></li>
+							<li><a href="" class="user-header__link user-header__link_2">Личный
+									кабинет</a></li>
+							<li><a href="" class="user-header__link user-header__link_3">Мои ставки</a></li>
+							<li><a href="" class="user-header__link user-header__link_4">Мои лоты</a></li>
+						</ul>
+					</div>
+				</div>
 			</div>
-			<ul class="user-header__menu">
-				<li><a href="" class="user-header__link user-header__link_1">Выбор региона</a></li>
-				<li><a href="" class="user-header__link user-header__link_2">Личный кабинет</a></li>
-				<li><a href="" class="user-header__link user-header__link_3">Мои ставки</a></li>
-				<li><a href="" class="user-header__link user-header__link_4">Мои лоты</a></li>
-			</ul>
-		</div>
-	</div>
-</header>
+		</header>
 
 			<main class="page"></main>
 			<footer class="footer">
