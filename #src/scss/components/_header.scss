@@ -1,5 +1,7 @@
 .header {
 	background-color: var(--color-main);
+	position: relative;
+	z-index: 50;
 	&__container {
 		position: relative;
 		display: flex;
@@ -39,7 +41,7 @@
 			padding: 130px 0 20px 0;
 			overflow: auto;
 			text-align: center;
-			background-color: rgba(28, 36, 42, 0.8);
+			background-color: rgba(28, 36, 42, 0.98);
 			opacity: 0;
 			visibility: hidden;
 			transition: all 0.3s ease 0s;

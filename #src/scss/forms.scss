@@ -17,13 +17,83 @@
 //</FORM>====================================================================================================
 
 //<BUTTONS (a.btn+tab)>====================================================================================================
-.button {
-	display: inline-flex;
+.btn {
+	position: relative;
+	display: inline-block;
 	padding: 0px 0px;
-	@media (any-hover: hover) {
-		&:hover {
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		height: 3px;
+		width: 100%;
+	}
+	&::before {
+		top: 0;
+		background-color: #c3a774;
+	}
+	&::after {
+		bottom: 0;
+		background-color: #8f6630;
+	}
+	&__body {
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			width: 3px;
+			height: 100%;
+			background-image: linear-gradient(to top, #8f6630, #c3a774);
+		}
+		&::before {
+			left: 0;
+		}
+		&::after {
+			right: 0;
+		}
+		span {
+			position: relative;
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 50px;
+			padding: 0 50px;
+			font-family: 'PFDin';
+			font-size: 15px;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			color: var(--color-white);
+			&::after {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 50%;
+				opacity: 0.06;
+				background-image: linear-gradient(
+					to top,
+					#bb9c66 0%,
+					rgba(187, 156, 102, 0) 100%
+				);
+				transition: all 0.6s ease 0s;
+			}
 		}
 	}
+
+	@media (any-hover: hover) {
+		&:hover {
+			.btn__body span {
+				&::after {
+					opacity: 0.3;
+					height: 100%;
+				}
+			}
+		}
+	}
+
 	&._fw {
 		width: 100%;
 	}
@@ -65,12 +135,12 @@
 			-webkit-box-orient: vertical;
 		}
 		&:before {
-			content: "";
+			content: '';
 			display: inline-block;
 			transition: all 0.3s ease 0s;
 			width: 11px;
 			height: 7px;
-			background: url("../img/icons/select.svg") center / 100% no-repeat;
+			background: url('../img/icons/select.svg') center / 100% no-repeat;
 		}
 	}
 	&__input {
@@ -122,9 +192,9 @@
 //</SELECT>====================================================================================================
 
 //<INPUT (inp+tab)>====================================================================================================
-input[type="text"],
-input[type="email"],
-input[type="tel"],
+input[type='text'],
+input[type='email'],
+input[type='tel'],
 textarea {
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -160,7 +230,7 @@ textarea.input {
 		opacity: 0;
 		visibility: hidden;
 		&:checked + .checkbox__text:before {
-			background: #fff url("../img/icons/check.svg") center no-repeat;
+			background: #fff url('../img/icons/check.svg') center no-repeat;
 		}
 	}
 	// .checkbox__text
@@ -174,7 +244,7 @@ textarea.input {
 		line-height: calc(20 / 16);
 		cursor: pointer;
 		&:before {
-			content: "";
+			content: '';
 			align-self: flex-start;
 			margin: 0px 14px 0px 0px;
 			flex: 0 0 20px;
@@ -242,7 +312,7 @@ textarea.input {
 		letter-spacing: -0.3px;
 		line-height: calc(20 / 16);
 		&:before {
-			content: "";
+			content: '';
 			align-self: flex-start;
 			margin: 0px 14px 0px 0px;
 			flex: 0 0 20px;
@@ -255,7 +325,7 @@ textarea.input {
 			border: 1px solid #a7a9ac;
 		}
 		&:after {
-			content: "";
+			content: '';
 			transition: all 0.3s ease 0s;
 			transform: scale(0);
 			width: 10px;
@@ -290,7 +360,7 @@ textarea.input {
 	position: relative;
 }
 .rating__body::before {
-	content: "★★★★★";
+	content: '★★★★★';
 	display: block;
 }
 .rating__active {
@@ -302,7 +372,7 @@ textarea.input {
 	overflow: hidden;
 }
 .rating__active::before {
-	content: "★★★★★";
+	content: '★★★★★';
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -344,7 +414,7 @@ textarea.input {
 		cursor: pointer;
 		&::before,
 		&::after {
-			content: "";
+			content: '';
 			position: absolute;
 			top: 50%;
 			left: 50%;

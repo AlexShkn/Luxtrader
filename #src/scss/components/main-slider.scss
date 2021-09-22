@@ -1,0 +1,117 @@
+.main-slider {
+	position: relative;
+	.swiper-wrapper {
+		align-items: stretch;
+		@media (max-width: $md3+px) {
+			align-items: flex-start;
+		}
+	}
+	// .main-slider__control
+	&__control {
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		left: 50%;
+		bottom: 0;
+		width: 100px;
+		height: 100px;
+		transform: translate(-50%, 50%);
+		&::after {
+			content: '';
+			position: absolute;
+			width: 70%;
+			height: 70%;
+			top: 50%;
+			left: 50%;
+			background-color: var(--color-white);
+			transform: translate(-50%, -50%) rotate(-45deg);
+		}
+	}
+}
+
+.control-main-slider {
+	// .control-main-slider__arrow
+
+	&__arrow {
+		position: relative;
+		z-index: 2;
+		background: url('../img/icons/sl-arrow.png') 0 0 no-repeat;
+		width: 14px;
+		height: 24px;
+		cursor: pointer;
+		// .control-main-slider__arrow_next
+		&_next {
+			transform: rotate(-180deg);
+		}
+	}
+	// .control-main-slider__decor
+	&__decor {
+		position: relative;
+		margin: 0 12px;
+		z-index: 2;
+		animation: rotate 5s infinite linear;
+	}
+}
+@keyframes rotate {
+	0% {
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.item-main-slider {
+	position: relative;
+	padding: 30px 0 100px 0;
+	text-align: center;
+	// .item-main-slider__content
+
+	&__content {
+		position: relative;
+		z-index: 2;
+	}
+	&__text {
+		max-width: 700px;
+		margin: 25px auto 0px auto;
+		color: var(--color-white);
+		font-size: 15px;
+		line-height: calc(25 / 15);
+	}
+	&__btn {
+		display: block;
+		margin-top: 55px;
+	}
+	// .item-main-slider__container
+}
+.title {
+	// .title__logo
+
+	&__logo {
+		margin: 23px 0 27px 0;
+		color: var(--color-gold);
+		font-family: 'ceremonious';
+		font-size: 40px;
+		text-align: center;
+	}
+
+	// .title__main
+
+	&__main {
+		font-family: 'PFDin';
+		font-size: 35px;
+		line-height: calc(40 / 35);
+		font-weight: 500;
+		text-transform: uppercase;
+		letter-spacing: 5.25px;
+		&_regular {
+			font-weight: 400;
+		}
+		&_w {
+			color: var(--color-white);
+		}
+		@media (max-width: $md3+px) {
+			font-size: 30px;
+		}
+	}
+}

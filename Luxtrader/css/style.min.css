@@ -33,7 +33,6 @@
   --color-white: #ffffff;
   --color-main: #1c242a;
   --color-gold: #bb9c66;
-  --grid-gap: 20px;
   --main-offset: 40px;
   --second-offset: 20px;
   --small-offset: 10px;
@@ -155,6 +154,8 @@ body._lock {
 
 .header {
   background-color: var(--color-main);
+  position: relative;
+  z-index: 50;
 }
 .header__container {
   position: relative;
@@ -200,7 +201,7 @@ body._lock {
     padding: 130px 0 20px 0;
     overflow: auto;
     text-align: center;
-    background-color: rgba(28, 36, 42, 0.8);
+    background-color: rgba(28, 36, 42, 0.98);
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease 0s;
@@ -400,6 +401,110 @@ body._lock {
   }
 }
 
+.main-slider {
+  position: relative;
+}
+.main-slider .swiper-wrapper {
+  align-items: stretch;
+}
+@media (max-width: 767.98px) {
+  .main-slider .swiper-wrapper {
+    align-items: flex-start;
+  }
+}
+.main-slider__control {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 50%;
+  bottom: 0;
+  width: 100px;
+  height: 100px;
+  transform: translate(-50%, 50%);
+}
+.main-slider__control::after {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  top: 50%;
+  left: 50%;
+  background-color: var(--color-white);
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.control-main-slider__arrow {
+  position: relative;
+  z-index: 2;
+  background: url("../img/icons/sl-arrow.png") 0 0 no-repeat;
+  width: 14px;
+  height: 24px;
+  cursor: pointer;
+}
+.control-main-slider__arrow_next {
+  transform: rotate(-180deg);
+}
+.control-main-slider__decor {
+  position: relative;
+  margin: 0 12px;
+  z-index: 2;
+  animation: rotate 5s infinite linear;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.item-main-slider {
+  position: relative;
+  padding: 30px 0 100px 0;
+  text-align: center;
+}
+.item-main-slider__content {
+  position: relative;
+  z-index: 2;
+}
+.item-main-slider__text {
+  max-width: 700px;
+  margin: 25px auto 0px auto;
+  color: var(--color-white);
+  font-size: 15px;
+  line-height: 1.6666666667;
+}
+.item-main-slider__btn {
+  display: block;
+  margin-top: 55px;
+}
+
+.title__logo {
+  margin: 23px 0 27px 0;
+  color: var(--color-gold);
+  font-family: "ceremonious";
+  font-size: 40px;
+  text-align: center;
+}
+.title__main {
+  font-family: "PFDin";
+  font-size: 35px;
+  line-height: 1.1428571429;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 5.25px;
+}
+.title__main_regular {
+  font-weight: 400;
+}
+.title__main_w {
+  color: var(--color-white);
+}
+@media (max-width: 767.98px) {
+  .title__main {
+    font-size: 30px;
+  }
+}
+
 .popup {
   -webkit-overflow-scrolling: touch;
   z-index: 100;
@@ -474,11 +579,71 @@ body._lock {
   background: url("../img/icons/close.svg") 0 0 no-repeat;
 }
 
-.button {
-  display: inline-flex;
+.btn {
+  position: relative;
+  display: inline-block;
   padding: 0px 0px;
 }
-.button._fw {
+.btn::before, .btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 3px;
+  width: 100%;
+}
+.btn::before {
+  top: 0;
+  background-color: #c3a774;
+}
+.btn::after {
+  bottom: 0;
+  background-color: #8f6630;
+}
+.btn__body::before, .btn__body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background-image: linear-gradient(to top, #8f6630, #c3a774);
+}
+.btn__body::before {
+  left: 0;
+}
+.btn__body::after {
+  right: 0;
+}
+.btn__body span {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50px;
+  padding: 0 50px;
+  font-family: "PFDin";
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-white);
+}
+.btn__body span::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  opacity: 0.06;
+  background-image: linear-gradient(to top, #bb9c66 0%, rgba(187, 156, 102, 0) 100%);
+  transition: all 0.6s ease 0s;
+}
+@media (any-hover: hover) {
+  .btn:hover .btn__body span::after {
+    opacity: 0.3;
+    height: 100%;
+  }
+}
+.btn._fw {
   width: 100%;
 }
 
@@ -871,9 +1036,6 @@ ol.counter li:before {
   width: 100%;
 }
 
-._ibg {
-  position: relative;
-}
 ._ibg img {
   position: absolute;
   width: 100%;
