@@ -325,16 +325,6 @@ body._lock {
     display: none;
   }
 }
-@media (max-width: 767.98px) {
-  .actions-header__region {
-    display: inline-block;
-    margin-top: 25px;
-    padding-left: 30px;
-  }
-  .actions-header__region span {
-    display: inline-block;
-  }
-}
 .actions-header__user {
   margin-left: 30px;
 }
@@ -355,8 +345,12 @@ body._lock {
   visibility: hidden;
   transition: all 0.3s ease 0s;
 }
-@media (max-width: 767.98px) {
+@media (max-width: 479.98px) {
   .user-header__menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
     width: 100%;
   }
 }
@@ -385,6 +379,11 @@ body._lock {
 }
 .user-header__link_1 {
   background: url("../img/icons/menu/01.png") 1px center no-repeat;
+}
+@media (min-width: 936px) {
+  .user-header__link_1 {
+    display: none;
+  }
 }
 .user-header__link_2 {
   background: url("../img/icons/menu/02.png") left center no-repeat;
@@ -462,16 +461,24 @@ body._lock {
   padding: 30px 0 100px 0;
   text-align: center;
 }
+.item-main-slider__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
 .item-main-slider__content {
   position: relative;
+  height: 100%;
   z-index: 2;
 }
 .item-main-slider__text {
+  flex: 1 1 auto;
   max-width: 700px;
   margin: 25px auto 0px auto;
-  color: var(--color-white);
   font-size: 15px;
   line-height: 1.6666666667;
+  color: var(--color-white);
 }
 .item-main-slider__btn {
   display: block;
@@ -480,10 +487,10 @@ body._lock {
 
 .title__logo {
   margin: 23px 0 27px 0;
-  color: var(--color-gold);
   font-family: "ceremonious";
-  font-size: 40px;
   text-align: center;
+  font-size: 40px;
+  color: var(--color-gold);
 }
 .title__main {
   font-family: "PFDin";
