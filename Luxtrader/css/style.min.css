@@ -29,10 +29,11 @@
   font-style: normal;
 }
 :root {
-  --color-black: #1c242a;
-  --color-white: #ffffff;
   --color-main: #1c242a;
+  --color-white: #ffffff;
   --color-gold: #bb9c66;
+  --color-gray: #333333;
+  --color-black: #000;
   --main-offset: 40px;
   --second-offset: 20px;
   --small-offset: 10px;
@@ -227,7 +228,7 @@ body._lock {
 .menu__list li {
   margin: 0 15px;
 }
-@media (max-width: 798px) {
+@media (max-width: 799px) {
   .menu__list li {
     margin: 0 10px;
   }
@@ -244,7 +245,7 @@ body._lock {
     margin: 0;
   }
 }
-.menu__link, .actions-header__region {
+.menu__link {
   font-family: "PFDin" sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -253,12 +254,12 @@ body._lock {
   color: var(--color-white);
 }
 @media (min-width: 992px) {
-  .menu__link:hover, .actions-header__region:hover {
+  .menu__link:hover {
     text-decoration: underline;
   }
 }
 @media (max-width: 767.98px) {
-  .menu__link, .actions-header__region {
+  .menu__link {
     font-size: 24px;
   }
 }
@@ -314,10 +315,27 @@ body._lock {
   min-width: 18px;
   min-height: 18px;
   padding-left: 30px;
+  font-family: "PFDin" sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
   line-height: 1.8;
   background: url("../img/icons/globe.png") left no-repeat;
+  color: var(--color-gold);
 }
-@media (max-width: 936px) {
+.actions-header__region span {
+  color: var(--color-gold);
+}
+.actions-header__region span:hover {
+  text-decoration: underline;
+}
+@media (max-width: 767.98px) {
+  .actions-header__region {
+    font-size: 24px;
+  }
+}
+@media (max-width: 968px) {
   .actions-header__region {
     padding: 0;
   }
@@ -328,7 +346,7 @@ body._lock {
 .actions-header__user {
   margin-left: 30px;
 }
-@media (max-width: 952px) {
+@media (max-width: 968px) {
   .actions-header__user {
     margin-left: 15px;
   }
@@ -380,7 +398,7 @@ body._lock {
 .user-header__link_1 {
   background: url("../img/icons/menu/01.png") 1px center no-repeat;
 }
-@media (min-width: 936px) {
+@media (min-width: 969px) {
   .user-header__link_1 {
     display: none;
   }
@@ -484,34 +502,89 @@ body._lock {
   display: block;
   margin-top: 55px;
 }
-
-.title__logo {
-  margin: 23px 0 27px 0;
-  font-family: "ceremonious";
-  text-align: center;
-  font-size: 40px;
-  color: var(--color-gold);
+.item-main-slider__bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
-.title__main {
+.item-main-slider__bg img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+.lots {
+  padding: 85px 0 63px 0;
+}
+.lots__header {
+  margin-bottom: 40px;
+}
+.control-slider-lots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.control-slider-lots__arrow {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.control-slider-lots__arrow span {
+  flex: 0 0 108px;
+  background: url("../img/icons/sl-arrow.svg") 0 0 no-repeat;
+  width: 108px;
+  height: 35px;
+}
+.control-slider-lots__arrow::after {
+  content: "";
+  margin: 0 5px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1px solid var(--color-gold);
+}
+.control-slider-lots__arrow:last-child {
+  flex-direction: row-reverse;
+}
+.control-slider-lots__arrow:last-child span {
+  transform: rotate(-180deg);
+}
+.control-slider-lots__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 100px;
+  height: 100px;
+  margin: 0 20px;
+  background: url("../img/icons/circle.png") 0 0 no-repeat;
   font-family: "PFDin";
-  font-size: 35px;
-  line-height: 1.1428571429;
+  font-size: 21px;
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 5.25px;
-}
-.title__main_regular {
-  font-weight: 400;
-}
-.title__main_w {
-  color: var(--color-white);
-}
-@media (max-width: 767.98px) {
-  .title__main {
-    font-size: 30px;
-  }
+  color: var(--color-black);
 }
 
+.lot__header {
+  text-align: center;
+}
+.lot__image {
+  display: block;
+  height: 250px;
+}
+.timer-lot {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  background-color: var(--color-white);
+  transform: translate(0px, -50%);
+}
 .popup {
   -webkit-overflow-scrolling: touch;
   z-index: 100;
@@ -977,6 +1050,105 @@ textarea.input {
   text-align: center;
 }
 
+.title {
+  text-align: center;
+}
+.title__logo {
+  margin: 23px 0 27px 0;
+  font-family: "ceremonious";
+  text-align: center;
+  font-size: 40px;
+  color: var(--color-gold);
+}
+.title__main {
+  font-family: "PFDin";
+  font-size: 35px;
+  line-height: 1.1428571429;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 5.25px;
+}
+.title__main_regular {
+  font-weight: 400;
+}
+.title__main_w {
+  color: var(--color-white);
+}
+.title__main_b {
+  color: var(--color-main);
+}
+@media (max-width: 767.98px) {
+  .title__main {
+    font-size: 30px;
+  }
+}
+
+.block-header__title {
+  margin-bottom: 20px;
+}
+.block-decor {
+  display: flex;
+}
+.block-decor__items {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+}
+.block-decor__items::before {
+  content: "";
+  flex: 1 1 auto;
+  height: 1px;
+  background-color: var(--color-gold);
+}
+.block-decor__items::after {
+  content: "";
+  flex: 0 0 18px;
+  margin: 0 5px;
+  height: 18px;
+  border: 1px solid var(--color-gold);
+  transform: rotate(-45deg);
+}
+.block-decor__items span {
+  display: flex;
+  align-items: center;
+  margin: 0 5px;
+}
+.block-decor__items span::before {
+  content: "";
+  flex: 0 0 10px;
+  height: 10px;
+  width: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
+  border: 1px solid var(--color-gold);
+}
+.block-decor__items span::after {
+  content: "";
+  height: 10.8px;
+  flex: 10.8px;
+  width: 10.8px;
+  border: 1px solid var(--color-gold);
+  transform: rotate(-45deg);
+}
+.block-decor__items:last-child {
+  flex-direction: row-reverse;
+}
+.block-decor__items:last-child span {
+  flex-direction: row-reverse;
+}
+.block-decor__icon {
+  flex: 0 0 145px;
+  text-align: center;
+}
+.block-decor__icon img {
+  max-width: 70px;
+}
+@media (max-width: 767.98px) {
+  .block-decor__icon {
+    flex: 0 0 95px;
+  }
+}
+
 .row:after {
   display: block;
   content: "";
@@ -1043,6 +1215,9 @@ ol.counter li:before {
   width: 100%;
 }
 
+._ibg {
+  position: relative;
+}
 ._ibg img {
   position: absolute;
   width: 100%;
