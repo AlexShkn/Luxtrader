@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap&subset=cyrillic-ext");
+@import url(https://fonts.googleapis.com/css?family=PT+Sans+Narrow:regular&display=swap&subset=cyrillic-ext);
 @font-face {
   font-family: "BravoRGRegular";
   font-display: swap;
@@ -524,6 +525,25 @@ body._lock {
 .lots__header {
   margin-bottom: 40px;
 }
+.slider-lots__body {
+  margin: 0 -50px 50px 0;
+}
+.slider-lots__body .swiper-wrapper {
+  align-items: stretch;
+}
+@media (max-width: 975px) {
+  .slider-lots__body {
+    margin: 0 -15px 50px;
+  }
+}
+.slider-lots__slide {
+  padding: 0 50px;
+}
+@media (max-width: 975px) {
+  .slider-lots__slide {
+    padding: 0 15px;
+  }
+}
 .control-slider-lots {
   display: flex;
   justify-content: center;
@@ -532,13 +552,20 @@ body._lock {
 .control-slider-lots__arrow {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   cursor: pointer;
 }
 .control-slider-lots__arrow span {
   flex: 0 0 108px;
-  background: url("../img/icons/sl-arrow.svg") 0 0 no-repeat;
+  background: url("../img/icons/sl-arrow.svg") left no-repeat;
   width: 108px;
   height: 35px;
+  overflow: hidden;
+}
+@media (max-width: 450px) {
+  .control-slider-lots__arrow span {
+    flex: 0 0 50px;
+  }
 }
 .control-slider-lots__arrow::after {
   content: "";
@@ -569,21 +596,162 @@ body._lock {
   color: var(--color-black);
 }
 
-.lot__header {
+.timer-lot {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  width: 72px;
+  height: 72px;
+  padding-top: 2px;
+  transform: translate(-50%, 50%);
+}
+.timer-lot div {
+  position: relative;
+  z-index: 2;
+}
+.timer-lot::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-white);
+  transform: rotate(-45deg);
+}
+.timer-lot__icon {
+  margin-bottom: 5px;
+}
+.timer-lot__item {
+  font-family: "PT Sans Narrow";
+  font-size: 18px;
+}
+
+.lot {
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  height: 100%;
+}
+.lot__header {
+  position: relative;
+  text-align: center;
+  margin-bottom: 30px;
 }
 .lot__image {
   display: block;
-  height: 250px;
+  border: 3px solid var(--color-gold);
+  padding-bottom: 98%;
 }
-.timer-lot {
+.lot__title {
+  position: relative;
+  flex: 1 1 auto;
+  text-align: center;
+  margin: 0 0 1.2857142857em 0px;
+  font-family: "PFDin";
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.1904761905;
+  text-transform: uppercase;
+  color: var(--color-black);
+  z-index: 2;
+}
+@media (max-width: 975px) {
+  .lot__title {
+    font-size: 18px;
+  }
+}
+@media (max-width: 992px) {
+  .lot__title:hover {
+    text-decoration: underline;
+  }
+}
+.lot__btn {
+  margin: 0 25px;
+}
+
+.info-lot {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 35px;
+}
+.info-lot__statistic {
+  flex: 0 0 50px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.info-lot__icon {
+  position: relative;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 100px;
-  background-color: var(--color-white);
-  transform: translate(0px, -50%);
+  width: 18px;
+  height: 18px;
+  margin: 0 auto 10px auto;
+}
+.info-lot__icon img {
+  position: relative;
+  z-index: 2;
+}
+.info-lot__icon::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-main);
+  transform: rotate(-45deg);
+}
+.info-lot__value {
+  font-size: 14px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--color-gold);
+}
+.info-lot__current-bet {
+  flex: 1 1 auto;
+}
+@media (max-width: 975px) {
+  .info-lot__current-bet {
+    flex: 0 0 auto;
+  }
+}
+
+.current-bet-info-lot {
+  position: relative;
+  padding: 0 5px;
+}
+@media (max-width: 975px) {
+  .current-bet-info-lot {
+    padding: 0 10px;
+  }
+}
+.current-bet-info-lot::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 72px;
+  height: 72px;
+  border: 1px solid var(--color-gold);
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+.current-bet-info-lot__label {
+  margin-bottom: 5px;
+}
+.current-bet-info-lot__value {
+  position: relative;
+  font-family: "BravoRGRegular";
+  font-size: 50px;
+  white-space: nowrap;
+  z-index: 2;
+}
+@media (max-width: 975px) {
+  .current-bet-info-lot__value {
+    font-size: 35px;
+  }
 }
 .popup {
   -webkit-overflow-scrolling: touch;
@@ -695,7 +863,7 @@ body._lock {
 }
 .btn__body span {
   position: relative;
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   min-height: 50px;
@@ -716,6 +884,13 @@ body._lock {
   opacity: 0.06;
   background-image: linear-gradient(to top, #bb9c66 0%, rgba(187, 156, 102, 0) 100%);
   transition: all 0.6s ease 0s;
+}
+.btn_big .btn__body span {
+  padding: 0 10px;
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--color-black);
 }
 @media (any-hover: hover) {
   .btn:hover .btn__body span::after {
