@@ -5,3 +5,4 @@
 @@include('files/forms.js', {})
 @@include('files/sliders.js', {})
 @@include('files/scroll.js', {})
+@@include('files/burger.js', {})
