@@ -1,5 +1,123 @@
-footer {
-}
-//====================================================================================================
+.footer {
+	background-color: var(--color-main);
+	padding: 45px 0;
+	// .footer__content
 
-//====================================================================================================
+	&__content {
+		display: flex;
+		@media (max-width: 767px) {
+			display: block;
+			text-align: center;
+		}
+	}
+
+	// .footer__column
+
+	&__column {
+		&:first-child {
+			flex: 0 0 180px;
+		}
+		&_full {
+			flex: 1 1 auto;
+		}
+	}
+
+	// .footer__logo
+
+	&__logo {
+		display: inline-block;
+		margin-bottom: 25px;
+		@media (max-width: 767px) {
+			margin: 0;
+		}
+	}
+
+	// .footer__info
+
+	&__info {
+		color: var(--color-gold);
+		@media (max-width: 767px) {
+			margin-top: 25px;
+		}
+	}
+
+	// .footer__menu
+
+	&__menu {
+		padding: 0 30px;
+		@media (max-width: 767px) {
+			margin-bottom: 20px;
+		}
+	}
+
+	// .footer__list
+
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		li {
+			margin: 15px 15px 0 0;
+		}
+		@media (max-width: 767px) {
+			justify-content: center;
+		}
+	}
+
+	// .footer__link
+
+	&__link {
+		color: var(--color-white);
+		font-family: 'PFDin';
+		font-weight: 500;
+		text-transform: uppercase;
+		letter-spacing: 1.4px;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+	// .footer__contacts
+
+	&__contacts {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		padding-top: 12px;
+		text-align: right;
+		@media (max-width: 767px) {
+			align-items: center;
+		}
+	}
+
+	// .footer__phone
+
+	&__phone {
+		display: flex;
+		align-items: flex-start;
+		white-space: nowrap;
+		color: var(--color-gold);
+		font-family: 'BravoRGRegular';
+		font-size: 50px;
+		text-transform: uppercase;
+		small {
+			font-size: 25px;
+			margin: 2px 5px 0 0;
+		}
+		@media (max-width: 991px) {
+			font-size: 40px;
+			small {
+				font-size: 20px;
+			}
+		}
+	}
+
+	// .footer__callback
+
+	&__callback {
+		color: var(--color-gold);
+		background: url('../img/icons/callback.svg') left no-repeat;
+		padding-left: 12px;
+		span {
+			border-bottom: 1px dashed;
+		}
+	}
+}

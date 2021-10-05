@@ -223,12 +223,12 @@ let quotes_slider = new Swiper('.slider-quotes__body', {
 		320: {
 			slidesPerView: 1,
 			// spaceBetween: 0,
-			// autoHeight: true,
+			autoHeight: true,
 		},
-		550: {
+		570: {
 			slidesPerView: 1,
 			// spaceBetween: 0,
-			// autoHeight: true,
+			autoHeight: false,
 		},
 		768: {
 			slidesPerView: 1,

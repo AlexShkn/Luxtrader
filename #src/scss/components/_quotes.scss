@@ -1,5 +1,9 @@
 .quotes {
 	padding: 64px 0 75px 0;
+	@media (max-width: 767px) {
+		padding: 35px 0 35px 0;
+	}
+
 	// .quotes__container
 
 	&__container {
@@ -20,6 +24,9 @@
 	// .slider-quotes__body
 
 	&__body {
+		@media (max-width: 570px) {
+			margin-bottom: 30px;
+		}
 	}
 
 	// .slider-quotes__slide
@@ -30,6 +37,9 @@
 		opacity: 0 !important;
 		&.swiper-slide-active {
 			opacity: 1 !important;
+		}
+		@media (max-width: 570px) {
+			display: block;
 		}
 	}
 

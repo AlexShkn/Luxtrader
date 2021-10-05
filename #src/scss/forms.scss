@@ -11,6 +11,8 @@
 	&__button {
 	}
 	&__error {
+		color: red;
+		margin-top: 10px;
 	}
 }
 
@@ -216,9 +218,13 @@ textarea {
 .input {
 	border-radius: 0 !important;
 	width: 100%;
+	height: 100%;
 	display: block;
-	padding: 0px 20px;
+	padding: 0px 25px;
+	font-size: 15px;
+	color: #4f4f4f;
 	&._focus {
+		color: #000;
 	}
 	&._error {
 	}

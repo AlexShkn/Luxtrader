@@ -1,7 +1,13 @@
 .header {
 	background-color: var(--color-main);
-	position: relative;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
 	z-index: 50;
+	border-bottom: 0.1px solid var(--color-gold);
+	border-top: 0.1px solid var(--color-gold);
+
 	&__container {
 		position: relative;
 		display: flex;
@@ -88,6 +94,10 @@
 		letter-spacing: 1.4px;
 		text-transform: uppercase;
 		color: var(--color-white);
+		transition: color 0.3s ease 0s;
+		&._active {
+			color: var(--color-gold);
+		}
 		@media (min-width: 992px) {
 			&:hover {
 				text-decoration: underline;

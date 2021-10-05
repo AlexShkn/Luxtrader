@@ -1,9 +1,16 @@
 .categories {
 	margin-bottom: 70px;
+	@media (max-width: 767px) {
+		margin-bottom: 35px;
+	}
+
 	// .categories__items
 
 	&__items {
 		margin-bottom: 85px;
+		@media (max-width: 767px) {
+			margin-bottom: 0;
+		}
 	}
 
 	// .categories__container
@@ -182,7 +189,19 @@
 			width: 85px;
 			height: 12px;
 			background: url('../img/categories/decor_header.png') 0 0 no-repeat;
+			@media (max-width: 767px) {
+				display: none;
+			}
 		}
+		@media (max-width: 767px) {
+			padding: 10px 0 25px 0px;
+			background: none;
+		}
+	}
+}
+.webp .text-categories__body {
+	@media (max-width: 767px) {
+		background: none !important;
 	}
 }
 

@@ -14,7 +14,7 @@ let currentScroll;
 //ScrollOnScroll
 window.addEventListener('scroll', scroll_scroll);
 function scroll_scroll() {
-	let src_value = currentScroll = pageYOffset;
+	let src_value = (currentScroll = pageYOffset);
 	let header = document.querySelector('header.header');
 	if (header !== null) {
 		if (src_value > 10) {
@@ -36,14 +36,20 @@ function scroll_scroll() {
 			}
 			*/
 
-			if ((pageYOffset > block_offset - window.innerHeight / 1.5) && pageYOffset < (block_offset + block_height) - window.innerHeight / 5) {
+			if (
+				pageYOffset > block_offset - window.innerHeight / 1.5 &&
+				pageYOffset < block_offset + block_height - window.innerHeight / 5
+			) {
 				block.classList.add('_scr-sector_active');
 			} else {
 				if (block.classList.contains('_scr-sector_active')) {
 					block.classList.remove('_scr-sector_active');
 				}
 			}
-			if ((pageYOffset > block_offset - window.innerHeight / 2) && pageYOffset < (block_offset + block_height) - window.innerHeight / 5) {
+			if (
+				pageYOffset > block_offset - window.innerHeight / 2 &&
+				pageYOffset < block_offset + block_height - window.innerHeight / 5
+			) {
 				if (!block.classList.contains('_scr-sector_current')) {
 					block.classList.add('_scr-sector_current');
 				}
@@ -60,19 +66,22 @@ function scroll_scroll() {
 			let scr_item_offset = offset(scr_item).top;
 			let scr_item_height = scr_item.offsetHeight;
 
-
-			let scr_item_point = window.innerHeight - (window.innerHeight - scr_item_height / 3);
+			let scr_item_point =
+				window.innerHeight - (window.innerHeight - scr_item_height / 3);
 			if (window.innerHeight > scr_item_height) {
 				scr_item_point = window.innerHeight - scr_item_height / 3;
 			}
 
-			if ((src_value > scr_item_offset - scr_item_point) && src_value < (scr_item_offset + scr_item_height)) {
+			if (
+				src_value > scr_item_offset - scr_item_point &&
+				src_value < scr_item_offset + scr_item_height
+			) {
 				scr_item.classList.add('_active');
 				scroll_load_item(scr_item);
 			} else {
 				scr_item.classList.remove('_active');
 			}
-			if (((src_value > scr_item_offset - window.innerHeight))) {
+			if (src_value > scr_item_offset - window.innerHeight) {
 				if (scr_item.querySelectorAll('._lazy').length > 0) {
 					scroll_lazy(scr_item);
 				}
@@ -88,7 +97,10 @@ function scroll_scroll() {
 		let content_height = document.querySelector('.wrapper').offsetHeight;
 		let scr_procent = (pageYOffset / (content_height - window_height)) * 100;
 		let custom_scroll_line_height = custom_scroll_line.offsetHeight;
-		custom_scroll_line.style.transform = "translateY(" + (window_height - custom_scroll_line_height) / 100 * scr_procent + "px)";
+		custom_scroll_line.style.transform =
+			'translateY(' +
+			((window_height - custom_scroll_line_height) / 100) * scr_procent +
+			'px)';
 	}
 	if (src_value > scrollDirection) {
 		// downscroll code
@@ -143,7 +155,10 @@ function scroll_lazy(scr_item) {
 	*/
 }
 function scroll_load_item(scr_item) {
-	if (scr_item.classList.contains('_load-map') && !scr_item.classList.contains('_loaded-map')) {
+	if (
+		scr_item.classList.contains('_load-map') &&
+		!scr_item.classList.contains('_loaded-map')
+	) {
 		let map_item = document.getElementById('map');
 		if (map_item) {
 			scr_item.classList.add('_loaded-map');
@@ -156,8 +171,9 @@ function scrParallax(block, scrProcent, blockHeight) {
 	if (prlxItems.length > 0) {
 		for (let index = 0; index < prlxItems.length; index++) {
 			const prlxItem = prlxItems[index];
-			let prlxItemAttr = (prlxItem.dataset.prlx) ? prlxItem.dataset.prlx : 3;
-			const prlxItemValue = -1 * (blockHeight / 100 * scrProcent / prlxItemAttr);
+			let prlxItemAttr = prlxItem.dataset.prlx ? prlxItem.dataset.prlx : 3;
+			const prlxItemValue =
+				-1 * (((blockHeight / 100) * scrProcent) / prlxItemAttr);
 			prlxItem.style.cssText = `transform: translateY(${prlxItemValue}px);`;
 		}
 	}
@@ -172,10 +188,10 @@ if (scr_blocks.length > 0 && !isMobile.any()) {
 	if (swiperScrolls.length > 0) {
 		for (let index = 0; index < swiperScrolls.length; index++) {
 			const swiperScroll = swiperScrolls[index];
-			swiperScroll.addEventListener("mouseenter", function (e) {
+			swiperScroll.addEventListener('mouseenter', function (e) {
 				window.removeEventListener('wheel', full_scroll);
 			});
-			swiperScroll.addEventListener("mouseleave", function (e) {
+			swiperScroll.addEventListener('mouseleave', function (e) {
 				window.addEventListener('wheel', full_scroll);
 			});
 		}
@@ -195,7 +211,9 @@ function full_scroll(e) {
 	let viewport_height = window.innerHeight;
 	if (viewport_height >= scr_min_height) {
 		if (scrolling_full) {
-			let current_block = document.querySelector('._scr-sector._scr-sector_current');
+			let current_block = document.querySelector(
+				'._scr-sector._scr-sector_current'
+			);
 			let current_block_pos = offset(current_block).top;
 			let current_block_height = current_block.offsetHeight;
 			let current_block_next = current_block.nextElementSibling;
@@ -213,7 +231,12 @@ function full_scroll(e) {
 						}
 					}
 				}
-			} else if (e.keyCode == 38 || e.keyCode == 33 || e.deltaX < 0 || e.deltaY > 0) {
+			} else if (
+				e.keyCode == 38 ||
+				e.keyCode == 33 ||
+				e.deltaX < 0 ||
+				e.deltaY > 0
+			) {
 				if (current_block_height <= viewport_height) {
 					if (current_block_next) {
 						let block_pos = offset(current_block_next).top;
@@ -242,15 +265,15 @@ function full_scroll_to_sector(pos) {
 	_goto(pos, 800);
 
 	let scr_pause = 500;
-	if (navigator.appVersion.indexOf("Mac") != -1) {
+	if (navigator.appVersion.indexOf('Mac') != -1) {
 		scr_pause = 1000;
-	};
+	}
 	setTimeout(function () {
 		scrolling_full = true;
 	}, scr_pause);
 }
-function full_scroll_pagestart() { }
-function full_scroll_pageend() { }
+function full_scroll_pagestart() {}
+function full_scroll_pageend() {}
 
 //ScrollOnClick (Navigation)
 let link = document.querySelectorAll('._goto-block');
@@ -271,7 +294,7 @@ if (link) {
 			let target_block = document.querySelector('.' + target_block_class);
 			_goto(target_block, 300);
 			e.preventDefault();
-		})
+		});
 	}
 
 	window.addEventListener('scroll', function (el) {
@@ -288,8 +311,13 @@ if (link) {
 			if (block_item) {
 				let block_offset = offset(block_item).top;
 				let block_height = block_item.offsetHeight;
-				if ((pageYOffset > block_offset - window.innerHeight / 3) && pageYOffset < (block_offset + block_height) - window.innerHeight / 3) {
-					let current_links = document.querySelectorAll('._goto-block[href="#' + block + '"]');
+				if (
+					pageYOffset > block_offset - window.innerHeight / 3 &&
+					pageYOffset < block_offset + block_height - window.innerHeight / 3
+				) {
+					let current_links = document.querySelectorAll(
+						'._goto-block[href="#' + block + '"]'
+					);
 					for (let index = 0; index < current_links.length; index++) {
 						let current_link = current_links[index];
 						current_link.classList.add('_active');
@@ -297,7 +325,7 @@ if (link) {
 				}
 			}
 		}
-	})
+	});
 }
 //ScrollOnClick (Simple)
 let goto_links = document.querySelectorAll('._goto');
@@ -315,9 +343,9 @@ if (goto_links) {
 function _goto(target_block, speed, offset = 0) {
 	let header = '';
 	//OffsetHeader
-	//if (window.innerWidth < 992) {
-	//	header = 'header';
-	//}
+	// if (window.innerWidth < 992) {
+	// header = 'header'; // учитывает header fixed
+	// }
 	let options = {
 		speedAsDuration: true,
 		speed: speed,
@@ -334,10 +362,11 @@ function offset(el) {
 	var rect = el.getBoundingClientRect(),
 		scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
 		scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-	return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
+	return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
 }
 function disableScroll() {
-	if (window.addEventListener) // older FF
+	if (window.addEventListener)
+		// older FF
 		window.addEventListener('DOMMouseScroll', preventDefault, false);
 	document.addEventListener('wheel', preventDefault, { passive: false }); // Disable scrolling in Chrome
 	window.onwheel = preventDefault; // modern standard
@@ -356,8 +385,7 @@ function enableScroll() {
 }
 function preventDefault(e) {
 	e = e || window.event;
-	if (e.preventDefault)
-		e.preventDefault();
+	if (e.preventDefault) e.preventDefault();
 	e.returnValue = false;
 }
 function preventDefaultForScrollKeys(e) {
@@ -370,22 +398,38 @@ function preventDefaultForScrollKeys(e) {
 function fix_block(scr_fix_block, scr_value) {
 	let window_width = parseInt(window.innerWidth);
 	let window_height = parseInt(window.innerHeight);
-	let header_height = parseInt(document.querySelector('header').offsetHeight) + 15;
+	let header_height =
+		parseInt(document.querySelector('header').offsetHeight) + 15;
 	for (let index = 0; index < scr_fix_block.length; index++) {
 		const block = scr_fix_block[index];
 		let block_width = block.getAttribute('data-width');
 		const item = block.querySelector('._side-block');
-		if (!block_width) { block_width = 0; }
+		if (!block_width) {
+			block_width = 0;
+		}
 		if (window_width > block_width) {
 			if (item.offsetHeight < window_height - (header_height + 30)) {
 				if (scr_value > offset(block).top - (header_height + 15)) {
-					item.style.cssText = "position:fixed;bottom:auto;top:" + header_height + "px;width:" + block.offsetWidth + "px;left:" + offset(block).left + "px;";
+					item.style.cssText =
+						'position:fixed;bottom:auto;top:' +
+						header_height +
+						'px;width:' +
+						block.offsetWidth +
+						'px;left:' +
+						offset(block).left +
+						'px;';
 				} else {
 					gotoRelative(item);
 				}
-				if (scr_value > (block.offsetHeight + offset(block).top) - (item.offsetHeight + (header_height + 15))) {
-					block.style.cssText = "position:relative;";
-					item.style.cssText = "position:absolute;bottom:0;top:auto;left:0px;width:100%";
+				if (
+					scr_value >
+					block.offsetHeight +
+						offset(block).top -
+						(item.offsetHeight + (header_height + 15))
+				) {
+					block.style.cssText = 'position:relative;';
+					item.style.cssText =
+						'position:absolute;bottom:0;top:auto;left:0px;width:100%';
 				}
 			} else {
 				gotoRelative(item);
@@ -393,7 +437,7 @@ function fix_block(scr_fix_block, scr_value) {
 		}
 	}
 	function gotoRelative(item) {
-		item.style.cssText = "position:relative;bottom:auto;top:0px;left:0px;";
+		item.style.cssText = 'position:relative;bottom:auto;top:0px;left:0px;';
 	}
 }
 
@@ -414,8 +458,12 @@ function custom_scroll(event) {
 	scr_body.style.overflow = 'hidden';
 	let window_height = window.innerHeight;
 	let custom_scroll_line = document.querySelector('._custom-scroll__line');
-	let custom_scroll_content_height = document.querySelector('.wrapper').offsetHeight;
-	let custom_cursor_height = Math.min(window_height, Math.round(window_height * (window_height / custom_scroll_content_height)));
+	let custom_scroll_content_height =
+		document.querySelector('.wrapper').offsetHeight;
+	let custom_cursor_height = Math.min(
+		window_height,
+		Math.round(window_height * (window_height / custom_scroll_content_height))
+	);
 	if (custom_scroll_content_height > window_height) {
 		if (!custom_scroll_line) {
 			let custom_scroll = document.createElement('div');
@@ -436,12 +484,23 @@ function scroll_animate(event) {
 	let start_position = pageYOffset;
 	let pos_add = 100;
 
-	if (event.keyCode == 40 || event.keyCode == 34 || event.deltaX > 0 || event.deltaY < 0) {
+	if (
+		event.keyCode == 40 ||
+		event.keyCode == 34 ||
+		event.deltaX > 0 ||
+		event.deltaY < 0
+	) {
 		new_pos = new_pos - pos_add;
-	} else if (event.keyCode == 38 || event.keyCode == 33 || event.deltaX < 0 || event.deltaY > 0) {
+	} else if (
+		event.keyCode == 38 ||
+		event.keyCode == 33 ||
+		event.deltaX < 0 ||
+		event.deltaY > 0
+	) {
 		new_pos = new_pos + pos_add;
 	}
-	if (new_pos > (content_height - window_height)) new_pos = content_height - window_height;
+	if (new_pos > content_height - window_height)
+		new_pos = content_height - window_height;
 	if (new_pos < 0) new_pos = 0;
 
 	if (scrolling) {
@@ -449,9 +508,9 @@ function scroll_animate(event) {
 		_goto(new_pos, 1000);
 
 		let scr_pause = 100;
-		if (navigator.appVersion.indexOf("Mac") != -1) {
+		if (navigator.appVersion.indexOf('Mac') != -1) {
 			scr_pause = scr_pause * 2;
-		};
+		}
 		setTimeout(function () {
 			scrolling = true;
 			_goto(new_pos, 1000);
