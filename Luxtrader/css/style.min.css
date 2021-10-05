@@ -530,6 +530,7 @@ body._lock {
 .lots__header {
   margin-bottom: 40px;
 }
+
 .slider-lots__body {
   margin: 0 -50px 50px 0;
 }
@@ -549,6 +550,7 @@ body._lock {
     padding: 0 15px;
   }
 }
+
 .control-slider-lots {
   display: flex;
   justify-content: center;
@@ -758,6 +760,7 @@ body._lock {
     font-size: 35px;
   }
 }
+
 .categories {
   margin-bottom: 70px;
 }
@@ -1034,6 +1037,7 @@ body._lock {
     flex: 1 1 100%;
   }
 }
+
 .service {
   display: flex;
   flex-direction: column;
@@ -1086,6 +1090,92 @@ body._lock {
   padding: 0 15px;
   z-index: 2;
   background-color: var(--color-main);
+}
+
+.quotes {
+  padding: 64px 0 75px 0;
+}
+.slider-quotes__content {
+  flex: 0 1 517px;
+}
+.slider-quotes__slide {
+  display: flex;
+  align-items: center;
+  opacity: 0 !important;
+}
+.slider-quotes__slide.swiper-slide-active {
+  opacity: 1 !important;
+}
+.slider-quotes__image {
+  flex: 0 0 33.6842105263%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+}
+.slider-quotes__image img {
+  max-width: 100%;
+}
+.slider-quotes__title {
+  margin: 0 0 1.2em 0px;
+  font-size: 25px;
+  font-style: italic;
+  line-height: 1.2;
+}
+.slider-quotes__info {
+  font-size: 15px;
+  color: var(--color-main);
+}
+.slider-quotes__info p {
+  margin-bottom: 7px;
+}
+.slider-quotes__info p:last-child {
+  margin-bottom: 0;
+}
+.control-slider-quotes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.control-slider-quotes__decor {
+  flex: 0 1 33.333%;
+  display: flex;
+  align-items: center;
+}
+.control-slider-quotes__decor::before {
+  content: "";
+  flex: 1 1 auto;
+  height: 1px;
+  background-color: var(--color-gold);
+}
+.control-slider-quotes__decor::after {
+  content: "";
+  margin-left: 5px;
+  width: 10px;
+  height: 10px;
+  border: 1px solid var(--color-gold);
+  border-radius: 50%;
+}
+.control-slider-quotes__decor:last-child {
+  flex-direction: row-reverse;
+}
+.control-slider-quotes__decor:last-child::after {
+  margin-right: 5px;
+}
+.control-slider-quotes__link {
+  flex: 0 1 33.333%;
+  text-align: center;
+}
+.control-slider-quotes__circle {
+  display: inline-flex;
+  background: url("../img/icons/rotate-arrow.svg") center no-repeat;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 1px solid var(--color-gold);
+  cursor: pointer;
 }
 
 .popup {

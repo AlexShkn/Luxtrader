@@ -3,21 +3,9 @@
 	@media (max-width: 650px) {
 		padding: 45px 0 33px 0;
 	}
-
-	// .lots__container
-
-	&__container {
-	}
-
 	// .lots__header
-
 	&__header {
 		margin-bottom: 40px;
-	}
-
-	// .lots__slider
-
-	&__slider {
 	}
 }
 
@@ -41,11 +29,6 @@
 		@media (max-width: 975px) {
 			padding: 0 15px;
 		}
-	}
-
-	// .slider-lots__control
-
-	&__control {
 	}
 }
 .control-slider-lots {
@@ -163,11 +146,6 @@
 		padding-bottom: 98%;
 	}
 
-	// .lot__timer
-
-	&__timer {
-	}
-
 	&__title {
 		position: relative;
 		flex: 1 1 auto;
@@ -188,11 +166,6 @@
 				text-decoration: underline;
 			}
 		}
-	}
-
-	// .lot__info
-
-	&__info {
 	}
 
 	// .lot__btn
@@ -296,21 +269,5 @@
 		@media (max-width: 975px) {
 			font-size: 35px;
 		}
-	}
-
-	// .current-bet-info-lot__currency
-
-	&__currency {
-	}
-}
-.btn {
-	// .btn_big
-
-	&_big {
-	}
-
-	// .btn__body
-
-	&__body {
 	}
 }

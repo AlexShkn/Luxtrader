@@ -1,0 +1,128 @@
+.quotes {
+	padding: 64px 0 75px 0;
+	// .quotes__container
+
+	&__container {
+	}
+	// .quotes__slider
+
+	&__slider {
+	}
+}
+
+.slider-quotes {
+	// .slider-quotes__content
+
+	&__content {
+		flex: 0 1 517px;
+	}
+
+	// .slider-quotes__body
+
+	&__body {
+	}
+
+	// .slider-quotes__slide
+
+	&__slide {
+		display: flex;
+		align-items: center;
+		opacity: 0 !important;
+		&.swiper-slide-active {
+			opacity: 1 !important;
+		}
+	}
+
+	// .slider-quotes__image
+
+	&__image {
+		flex: 0 0 math.div(320, 950) * 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 0 20px;
+		img {
+			max-width: 100%;
+		}
+	}
+
+	// .slider-quotes__title
+
+	&__title {
+		margin: 0 0 math.div(30, 25) * 1em 0px;
+		font-size: 25px;
+		font-style: italic;
+		line-height: calc(30 / 25);
+	}
+
+	// .slider-quotes__info
+
+	&__info {
+		font-size: 15px;
+		color: var(--color-main);
+		p {
+			margin-bottom: 7px;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	// .slider-quotes__control
+
+	&__control {
+	}
+}
+
+.control-slider-quotes {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-width: 400px;
+	margin: 0 auto;
+	// .control-slider-quotes__decor
+
+	&__decor {
+		flex: 0 1 33.333%;
+		display: flex;
+		align-items: center;
+		&::before {
+			content: '';
+			flex: 1 1 auto;
+			height: 1px;
+			background-color: var(--color-gold);
+		}
+		&::after {
+			content: '';
+			margin-left: 5px;
+			width: 10px;
+			height: 10px;
+			border: 1px solid var(--color-gold);
+			border-radius: 50%;
+		}
+		&:last-child {
+			flex-direction: row-reverse;
+			&::after {
+				margin-right: 5px;
+			}
+		}
+	}
+
+	// .control-slider-quotes__link
+
+	&__link {
+		flex: 0 1 33.333%;
+		text-align: center;
+	}
+	// .control-slider-quotes__circle
+
+	&__circle {
+		display: inline-flex;
+		background: url('../img/icons/rotate-arrow.svg') center no-repeat;
+		height: 50px;
+		width: 50px;
+		border-radius: 50%;
+		border: 1px solid var(--color-gold);
+		cursor: pointer;
+	}
+}

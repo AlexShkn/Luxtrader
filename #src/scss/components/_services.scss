@@ -4,21 +4,11 @@
 	@media (max-width: 640px) {
 		padding: 40px 0 0 0;
 	}
-	// .services__container
-
-	&__container {
-	}
-
 	// .services__header
 
 	&__header {
 		margin-bottom: 40px;
 	}
-	// ._container
-
-	&_container {
-	}
-
 	// .services__row
 
 	&__row {
@@ -40,11 +30,6 @@
 		@media (max-width: 640px) {
 			flex: 1 1 100%;
 		}
-	}
-
-	// .services__item
-
-	&__item {
 	}
 }
 
