@@ -1,2 +1,2 @@
-# Luxtrader
+https://alexshkn.github.io/Luxtrader/
 
