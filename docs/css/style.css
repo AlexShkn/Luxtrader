@@ -3100,6 +3100,12 @@ body.ie ._ibg img {
   }
 }
 
+@media (max-width: 575px) {
+  .quotes__header {
+    margin-bottom: 20px;
+  }
+}
+
 @media (max-width: 570px) {
   .slider-quotes__body {
     margin-bottom: 30px;

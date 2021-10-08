@@ -6,12 +6,12 @@
 
 	// .quotes__container
 
-	&__container {
+	&__header {
+		@media (max-width: 575px) {
+			margin-bottom: 20px;
+		}
 	}
 	// .quotes__slider
-
-	&__slider {
-	}
 }
 
 .slider-quotes {
